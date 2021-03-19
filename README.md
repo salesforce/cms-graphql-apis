@@ -96,7 +96,7 @@ To get a local copy up and running follow these simple example steps.
 
 1. Clone the repo
    ```sh
-   git clone git@git.soma.salesforce.com:nsengupta/cms-graphql-api.git
+   git clone git@github.com:salesforce/cms-graphql-apis.git
    ```
 2. Open the project in Intellij
 
