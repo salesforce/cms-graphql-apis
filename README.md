@@ -53,7 +53,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![GraphQL Sample Query](https://photos.app.goo.gl/xy1ebYYUQvGaxLZd8)
+![GraphQL Sample Query](https://lh3.google.com/u/2/d/17oA-aR8MXzw6aN7KVvOWXEoRtZ4mVq3C=w1878-h1260-iv1)
 
 GraphQL provides a optimized way to fetch data which involves loq latency and high throughput
 
