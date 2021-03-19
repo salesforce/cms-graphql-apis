@@ -1,0 +1,15 @@
+query ChannelWithContent {
+    channelById (channelId: "0ap1R000000blKCQAY"){
+        channelName
+        channelId
+        channelType
+        items (managedContentId: "20Y1R000000CaV9UAK"){
+            managedContentId
+            contentNodes {
+                bannerImage {
+                    mediaType
+                }
+            }
+        }
+    }
+}

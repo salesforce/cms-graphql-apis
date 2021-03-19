@@ -1,0 +1,75 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+    id 'application'
+    id "com.github.hierynomus.license-report" version"0.15.0"
+}
+
+group = 'com.salesforce.cms'
+version = '0.0.1-SNAPSHOT'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "https://oss.jfrog.org/artifactory/oss-snapshot-local" }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.graphql-java:graphql-java:15.0'
+    implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:2.0'
+    implementation "org.springframework.boot:spring-boot-autoconfigure"
+    implementation("org.springframework.boot:spring-boot-starter-test")
+
+    implementation 'com.google.guava:guava:26.0-jre'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.11'
+    // https://mvnrepository.com/artifact/com.eclipsesource.minimal-json/minimal-json
+    compile group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.1'
+    // https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient
+    compile group: 'commons-httpclient', name: 'commons-httpclient', version: '3.1'
+
+    // testing facilities
+    testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:8.1.0'
+
+}
+
+test {
+    useJUnitPlatform()
+
+    include 'com.salesforce.graphql.graphqlapi.test.ChannelQueryTest'
+
+    // show standard out and standard error of the test JVM(s) on the console
+    testLogging.showStandardStreams = true
+
+    // set heap size for the test JVM(s)
+    minHeapSize = "128m"
+    maxHeapSize = "512m"
+
+    // listen to events in the test execution lifecycle
+    beforeTest { descriptor ->
+        logger.lifecycle("Running test: " + descriptor)
+    }
+
+    // Fail the 'test' task on the first test failure
+    failFast = true
+
+    // listen to standard out and standard error of the test JVM(s)
+    onOutput { descriptor, event ->
+        logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
+    }
+}
+

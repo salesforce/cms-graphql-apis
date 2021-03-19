@@ -1,0 +1,100 @@
+type Query {
+    channelById(channelId: ID): [Channel]
+    searchContent(channelId: ID!, queryTerm: String!): [ManagedContentSearchItem!]
+}
+
+type Channel {
+    channelId: ID
+    channelName: String
+    channelType: String
+    domainId: String
+    domainName: String
+    isChannelSearchable: String
+    isDomainLocked: String
+    items(managedContentId: ID): [ManagedContentItem]
+}
+
+type ManagedContentItem {
+    contentNodes: ManagedContentNodes
+    contentUrlName: String
+    language: String
+    managedContentId: ID!
+    publishedDate: String
+    title: String
+    type: String
+    typeLabel: String
+    unauthenticatedUrl: String
+}
+
+type ManagedContentNodes {
+    source: ManagedContentSource
+    title: ManagedContentTitle
+    bannerImage: ManagedContentBannerImage
+    excerpt: ManagedContentExcerpt
+    body: ManagedContentBody
+}
+
+type ManagedContentSource {
+    fileName: String
+    isExternal: Boolean
+    mediaType: String
+    mimeType: String
+    nodeType: NodeTypeEnum
+    referenceId: String
+    resourceUrl: String
+    unauthenticatedUrl: String
+    url: String
+}
+
+type ManagedContentBannerImage {
+    altText: String
+    fileName: String
+    mediaType: String
+    mimeType: String
+    nodeType: NodeTypeEnum
+    resourceUrl: String
+    thumbnailUrl: String
+    title: String
+    unauthenticatedUrl: String
+    url: String
+}
+
+type ManagedContentExcerpt {
+    nodeType: NodeTypeEnum
+    value: String
+}
+
+type ManagedContentBody {
+    nodeType: NodeTypeEnum
+    value: String
+}
+
+type ManagedContentTitle {
+    nodeType: NodeTypeEnum
+    value: String
+}
+
+type ManagedContentSearchItem {
+    contentType: ManagedContentType
+    id: String
+    publishDate : String
+    title : String
+    urlName : String
+}
+
+type ManagedContentType {
+    developerName: String
+    label: String
+}
+
+enum NodeTypeEnum {
+    Media
+    Text
+    MultilineText
+    RichText
+    MediaSource
+    NameField
+    Date
+    DateTime
+    Url
+}
