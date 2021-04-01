@@ -3,6 +3,7 @@ type Query {
     searchContent(channelId: ID!, queryTerm: String!): [ManagedContentSearchItem!]
 }
 
+"Fetch the channel details"
 type Channel {
     channelId: ID
     channelName: String
@@ -14,6 +15,7 @@ type Channel {
     items(managedContentId: ID): [ManagedContentItem]
 }
 
+"Fetch the managed Content Item metadata"
 type ManagedContentItem {
     contentNodes: ManagedContentNodes
     contentUrlName: String
@@ -26,6 +28,7 @@ type ManagedContentItem {
     unauthenticatedUrl: String
 }
 
+"Fetch the Content Nodes in a Content Item"
 type ManagedContentNodes {
     source: ManagedContentSource
     title: ManagedContentTitle
@@ -34,6 +37,7 @@ type ManagedContentNodes {
     body: ManagedContentBody
 }
 
+"Get the ManagedContent Source"
 type ManagedContentSource {
     fileName: String
     isExternal: Boolean
@@ -46,6 +50,7 @@ type ManagedContentSource {
     url: String
 }
 
+"Get Banner Image for a ref node like News"
 type ManagedContentBannerImage {
     altText: String
     fileName: String
@@ -59,21 +64,25 @@ type ManagedContentBannerImage {
     url: String
 }
 
+"Fetch the excerpt for a content type"
 type ManagedContentExcerpt {
     nodeType: NodeTypeEnum
     value: String
 }
 
+"Fetch the content body (applicable for ref nodes like News)"
 type ManagedContentBody {
     nodeType: NodeTypeEnum
     value: String
 }
 
+"Fetch the title value"
 type ManagedContentTitle {
     nodeType: NodeTypeEnum
     value: String
 }
 
+"Get the search result for a managed content item query"
 type ManagedContentSearchItem {
     contentType: ManagedContentType
     id: String
@@ -82,6 +91,7 @@ type ManagedContentSearchItem {
     urlName : String
 }
 
+"Get the managed content type"
 type ManagedContentType {
     developerName: String
     label: String
