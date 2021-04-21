@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class ManagedContentNodes {
+    private ManagedContentAltText altText;
     private ManagedContentSource source;
     private ManagedContentTitle title;
     private ManagedContentBannerImage bannerImage;

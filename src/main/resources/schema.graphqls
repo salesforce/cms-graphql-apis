@@ -30,6 +30,7 @@ type ManagedContentItem {
 
 "Fetch the Content Nodes in a Content Item"
 type ManagedContentNodes {
+    altText: ManagedContentAltText
     source: ManagedContentSource
     title: ManagedContentTitle
     bannerImage: ManagedContentBannerImage
@@ -78,6 +79,12 @@ type ManagedContentBody {
 
 "Fetch the title value"
 type ManagedContentTitle {
+    nodeType: NodeTypeEnum
+    value: String
+}
+
+"Fetch the alt Text value"
+type ManagedContentAltText {
     nodeType: NodeTypeEnum
     value: String
 }
