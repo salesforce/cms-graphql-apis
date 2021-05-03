@@ -24,4 +24,7 @@ public class SessionRequest {
     @Value("${security.oauth2.client.client-secret}")
     private String secret;
 
+    @Value("${allowedOrigin}")
+    private String allowedOrigin;
+
 }
