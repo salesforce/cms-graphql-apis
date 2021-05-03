@@ -1,6 +1,6 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.1'
-    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'org.springframework.boot' version '2.4.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
     id 'application'
     id "com.github.hierynomus.license-report" version"0.15.0"
@@ -24,10 +24,12 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation 'com.graphql-java:graphql-java:15.0'
     implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:2.0'
     implementation "org.springframework.boot:spring-boot-autoconfigure"
     implementation("org.springframework.boot:spring-boot-starter-test")
+
 
     implementation 'com.google.guava:guava:26.0-jre'
     compileOnly 'org.projectlombok:lombok'
@@ -35,6 +37,7 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.0.0'
 
     // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.11'
@@ -45,7 +48,6 @@ dependencies {
 
     // testing facilities
     testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:8.1.0'
-
 }
 
 test {

@@ -1,6 +1,7 @@
 package com.salesforce.graphql.graphqlapi;
 
 import com.salesforce.graphql.SessionRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -11,10 +12,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 public class GraphqlApiApplication {
-
+    SessionRequest sessionReq;
     @Bean
     SessionRequest sessionRequest(){
-        return new SessionRequest();
+
+        sessionReq = new SessionRequest();
+        return sessionReq;
     }
 
     @Bean
@@ -22,7 +25,7 @@ public class GraphqlApiApplication {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/graphql").allowedOrigins("http://localhost:8081", "http://localhost:8080");
+                registry.addMapping("/graphql").allowedOrigins(sessionReq.getAllowedOrigin());
             }
         };
     }
