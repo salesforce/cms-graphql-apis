@@ -4,6 +4,7 @@ plugins {
     id 'java'
     id 'application'
     id "com.github.hierynomus.license-report" version"0.15.0"
+    id "com.heroku.sdk.heroku-gradle" version "2.0.0"
 }
 
 group = 'com.salesforce.cms'
