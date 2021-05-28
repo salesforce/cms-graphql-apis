@@ -40,11 +40,11 @@ dependencies {
     runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.0.0'
 
     // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
-    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.11'
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.11'
     // https://mvnrepository.com/artifact/com.eclipsesource.minimal-json/minimal-json
-    compile group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.1'
+    implementation group: 'com.eclipsesource.minimal-json', name: 'minimal-json', version: '0.9.1'
     // https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient
-    compile group: 'commons-httpclient', name: 'commons-httpclient', version: '3.1'
+    implementation group: 'commons-httpclient', name: 'commons-httpclient', version: '3.1'
 
     // testing facilities
     testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:8.1.0'
@@ -75,4 +75,3 @@ test {
         logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message )
     }
 }
-
